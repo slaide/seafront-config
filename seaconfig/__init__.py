@@ -1,1 +1,2 @@
-from .module import *
+from .acquisition import *
+from .wellplates import *
