@@ -9,6 +9,11 @@ class AcquisitionWellSiteConfigurationDeltaTime:
     m:float
     s:float
 
+    def __post_init__(self):
+        self.h=int(self.h)
+        self.m=int(self.m)
+        self.s=int(self.s)
+
     def to_dict(self)->dict:
         return dc.asdict(self)
 
@@ -23,6 +28,15 @@ class AcquisitionWellSiteConfiguration:
     num_t:int
     delta_t:AcquisitionWellSiteConfigurationDeltaTime
 
+    def __post_init__(self):
+        self.num_x=int(self.num_x)
+        self.delta_x=float(self.delta_x)
+        self.num_y=int(self.num_y)
+        self.delta_y=float(self.delta_y)
+        self.num_z=int(self.num_z)
+        self.delta_z=float(self.delta_z)
+        self.num_t=int(self.num_t)
+
     def to_dict(self)->dict:
         return dc.asdict(self)
     
@@ -34,6 +48,12 @@ class AcquisitionChannelConfig:
     exposure_time_ms:float
     analog_gain:float
     z_offset_um:float
+
+    def __post_init__(self):
+        self.illum_perc=float(self.illum_perc)
+        self.exposure_time_ms=float(self.exposure_time_ms)
+        self.analog_gain=float(self.analog_gain)
+        self.z_offset_um=float(self.z_offset_um)
 
     def to_dict(self)->dict:
         return dc.asdict(self)
