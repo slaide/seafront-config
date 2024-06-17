@@ -22,11 +22,26 @@ class Wellplate:
             - Well_distance_x_mm:float : distance between top left corner of adjacent wells, in x [mm] (e.g. A1 - A2)
             - Well_distance_y_mm:float : distance between top left corner of adjacent wells, in y [mm] (e.g. A1 - B1)
 
-            - Well_size_x_mm:float : largest size of a well in x dimension [mm] (wells may be squares, circles, or any other shape, so size in each dimension may vary across the well)
-            - Well_size_y_mm:float : largest size of a well in y dimension [mm] (wells may be squares, circles, or any other shape, so size in each dimension may vary across the well)
+            - Well_size_x_mm:float : largest size of a well in x dimension [mm]. this describes the area at the bottom of the well, in the image plane.
+
+                                     note on 'largest': wells may be squares, circles, or any other shape, so size in each dimension may vary across the well
+
+                                     note on 'bottom of the well': wells usually have slanted walls so the area is smaller at the bottom than at the top,
+                                                                   and technical information on plates usually only decribes the area at the top, which is not 
+                                                                   useful when we image at the bottom.
+            - Well_size_y_mm:float : largest size of a well in y dimension [mm]. this describes the area at the bottom of the well, in the image plane.
+
+                                     note on 'largest': wells may be squares, circles, or any other shape, so size in each dimension may vary across the well
+                                     
+                                     note on 'bottom of the well': wells usually have slanted walls so the area is smaller at the bottom than at the top,
+                                                                   and technical information on plates usually only decribes the area at the top, which is not 
+                                                                   useful when we image at the bottom.
 
             - Num_wells_x:int : number of wells in x dimension
             - Num_wells_y:int : number of wells in y dimension
+
+            - Length_mm:float : length of the plate [mm] (x dimension)
+            - Width_mm:float : width of the plate [mm] (y dimension)
 
         Properties:
             - Num_total_wells : returns the total number of wells on this plate (equal to  Num_wells_x * Num_wells_y)
@@ -52,6 +67,9 @@ class Wellplate:
 
     Num_wells_x:int
     Num_wells_y:int
+
+    Length_mm:float
+    Width_mm:float
 
     @property
     def Num_total_wells(self):
