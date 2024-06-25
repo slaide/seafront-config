@@ -21,7 +21,13 @@ class AcquisitionWellSiteConfigurationDeltaTime:
 class AcquisitionWellSiteConfigurationSiteSelectionItem:
     row:int
     col:int
+    plane:int
     selected:bool
+
+    def __post_init__(self):
+        self.row=int(self.row)
+        self.col=int(self.col)
+        self.plane=int(self.plane)
 
 @dataclass
 class AcquisitionWellSiteConfiguration:
@@ -128,6 +134,8 @@ class AcquisitionConfig:
     plate_wells:tp.List[PlateWellConfig]
 
     channels:tp.List[AcquisitionChannelConfig]
+
+    autofocus_enabled:bool
 
     def to_dict(self)->dict:
         return dc.asdict(self)
