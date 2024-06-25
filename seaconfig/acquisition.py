@@ -90,6 +90,8 @@ class AcquisitionChannelConfig:
     exposure_time_ms:float
     analog_gain:float
     z_offset_um:float
+    
+    enabled:bool=True
 
     def __post_init__(self):
         self.illum_perc=float(self.illum_perc)
