@@ -12,7 +12,7 @@ class Wellplate:
             - Model_name:str : name of the model of this plate
             - Model_id_manufacturer:str : unique model id as provided by the manufacturer (may be empty)
 
-            - Model_id:str : unique identifier for this plate (must NOT be manufacturer specific, may be empty)
+            - Model_id:str : unique identifier for this plate (must NOT be manufacturer specific)
 
             - Offset_A1_x_mm:float : distance between upper left corner of the plate and the upper left corner of well A1, in x [mm]
             - Offset_A1_y_mm:float : distance between upper left corner of the plate and the upper left corner of well A1, in y [mm]
