@@ -2,6 +2,7 @@ import json
 import typing as tp
 from dataclasses import dataclass
 import dataclasses as dc
+from .config_item import ConfigItem
 
 @dataclass
 class AcquisitionWellSiteConfigurationDeltaTime:
@@ -139,6 +140,8 @@ class AcquisitionConfig:
 
     autofocus_enabled:bool
 
+    machine_config:tp.Optional[tp.List[ConfigItem]]=None
+
     def to_dict(self)->dict:
         return dc.asdict(self)
     
@@ -146,6 +149,8 @@ class AcquisitionConfig:
         self.grid = AcquisitionWellSiteConfiguration(**self.grid) # type: ignore
         self.plate_wells = [PlateWellConfig(**d) for d in self.plate_wells] # type: ignore
         self.channels = [AcquisitionChannelConfig(**d) for d in self.channels] # type: ignore
+        if self.machine_config is not None:
+            self.machine_config=[c if type(c)==ConfigItem else ConfigItem(**c) for c in self.machine_config]
 
     @staticmethod
     def from_json(s:tp.Union[str,dict])->"AcquisitionConfig":

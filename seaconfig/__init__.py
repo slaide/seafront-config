@@ -1,5 +1,6 @@
 from .acquisition import *
 from .wellplates import *
+from .config_item import *
 
 Plates=[
     Wellplate(
