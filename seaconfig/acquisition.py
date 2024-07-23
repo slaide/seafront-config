@@ -3,6 +3,7 @@ import typing as tp
 from dataclasses import dataclass
 import dataclasses as dc
 from .config_item import ConfigItem
+from datetime import datetime
 
 @dataclass
 class AcquisitionWellSiteConfigurationDeltaTime:
@@ -126,6 +127,28 @@ class PlateWellConfig:
         return dc.asdict(self)
 
 @dataclass
+class Version:
+    "semantic version number (see https://semver.org/ for details)"
+    major:int
+    minor:int
+    patch:int
+    
+    def to_dict(self)->dict:
+        return dc.asdict(self)
+
+LATEST_SPEC_VERSION=Version(1,0,0)
+
+def _ensure_type(v,T):
+    """
+    if v is of type T, returns v.
+    otherwise [assume v is a dict] returns T(**v)
+    """
+    if isinstance(v,T):
+        return v
+
+    return T(**v)
+
+@dataclass
 class AcquisitionConfig:
     project_name:str
     plate_name:str
@@ -142,15 +165,28 @@ class AcquisitionConfig:
 
     machine_config:tp.Optional[tp.List[ConfigItem]]=None
 
+    comment:tp.Optional[str]=None
+    " arbitrary text comment embedded in the config file. may be used to communicate of intented context of use of the protocol (or any other purpose). "
+
+    spec_version:Version=LATEST_SPEC_VERSION
+    " version of the sdatetimepecification that was used to create the protocol file. "
+
+    timestamp:tp.Optional[datetime]=None
+    " creation timestamp of this protocol "
+
     def to_dict(self)->dict:
         return dc.asdict(self)
     
     def __post_init__(self):
-        self.grid = AcquisitionWellSiteConfiguration(**self.grid) # type: ignore
-        self.plate_wells = [PlateWellConfig(**d) for d in self.plate_wells] # type: ignore
-        self.channels = [AcquisitionChannelConfig(**d) for d in self.channels] # type: ignore
+        self.grid = _ensure_type(self.grid,AcquisitionWellSiteConfiguration)
+        self.plate_wells = [_ensure_type(d,PlateWellConfig) for d in self.plate_wells]
+        self.channels = [_ensure_type(d,AcquisitionChannelConfig) for d in self.channels]
         if self.machine_config is not None:
-            self.machine_config=[c if type(c)==ConfigItem else ConfigItem(**c) for c in self.machine_config]
+            self.machine_config=[_ensure_type(c,ConfigItem) for c in self.machine_config]
+
+        self.spec_version=_ensure_type(self.spec_version, Version)
+        if self.timestamp is not None:
+            self.timestamp=_ensure_type(self.timestamp, datetime)
 
     @staticmethod
     def from_json(s:tp.Union[str,dict])->"AcquisitionConfig":
