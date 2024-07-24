@@ -138,13 +138,16 @@ class Version:
 
 LATEST_SPEC_VERSION=Version(1,0,0)
 
-def _ensure_type(v,T):
+def _ensure_type(v,T,convert_v_to_T:tp.Callable|None=None):
     """
     if v is of type T, returns v.
     otherwise [assume v is a dict] returns T(**v)
     """
     if isinstance(v,T):
         return v
+
+    if convert_v_to_T is not None:
+        return convert_v_to_T(v)
 
     return T(**v)
 
@@ -172,10 +175,13 @@ class AcquisitionConfig:
     " version of the sdatetimepecification that was used to create the protocol file. "
 
     timestamp:tp.Optional[datetime]=None
-    " creation timestamp of this protocol "
+    " creation timestamp of this protocol in utc "
 
     def to_dict(self)->dict:
-        return dc.asdict(self)
+        ret=dc.asdict(self)
+        if self.timestamp is not None:
+            ret["timestamp"]=self.timestamp.isoformat(timespec="seconds")
+        return ret
     
     def __post_init__(self):
         self.grid = _ensure_type(self.grid,AcquisitionWellSiteConfiguration)
@@ -186,7 +192,7 @@ class AcquisitionConfig:
 
         self.spec_version=_ensure_type(self.spec_version, Version)
         if self.timestamp is not None:
-            self.timestamp=_ensure_type(self.timestamp, datetime)
+            self.timestamp=_ensure_type(self.timestamp, datetime, datetime.fromisoformat)
 
     @staticmethod
     def from_json(s:tp.Union[str,dict])->"AcquisitionConfig":
