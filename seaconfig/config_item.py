@@ -39,20 +39,27 @@ class ConfigItem:
 
     @property
     def intvalue(self)->int:
-        assert isinstance(self.value,int), f"{self.value = } ; {type(self.value) = }"
+        assert isinstance(self.value,int), f"{self.value = } ; {type(self.value) = }!=int"
+        return self.value
+
+    @property
+    def floatvalue(self)->float:
+        if isinstance(self.value,int):
+            self.value=float(self.value)
+        assert isinstance(self.value,float), f"{self.value = } ; {type(self.value) = }!=float"
         return self.value
     
     @property
     def boolvalue(self)->bool:
         # from ConfigItemOption.get_bool_options()
-        assert isinstance(self.value,str), f"{self.value = } ; {type(self.value) = }"
+        assert isinstance(self.value,str), f"{self.value = } ; {type(self.value) = }!=bool"
         return self.value=="yes"
 
     def override(self,other:"ConfigItem"):
         """
             update value from other item
         """
-        assert self.handle==other.handle, f"{self.handle = } ; {other.handle = }"
+        assert self.handle==other.handle, f"{self.handle = } != {other.handle = }"
         match self.value_kind:
             case "number":
                 if isinstance(self.value,int):
