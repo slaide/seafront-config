@@ -17,8 +17,8 @@ Plates=[
         Well_size_x_mm=6.4,
         Well_size_y_mm=6.4,
 
-        Offset_A1_x_mm=11.24-6.4/2, # offset is from center of the well
-        Offset_A1_y_mm=14.38-6.4/2, # offset is from center of the well
+        Offset_A1_x_mm=14.38-6.4/2, # offset is from center of the well
+        Offset_A1_y_mm=11.24-6.4/2, # offset is from center of the well
         Well_distance_x_mm=9,
         Well_distance_y_mm=9,
 
@@ -81,8 +81,8 @@ Plates=[
         Well_size_x_mm=6.3,
         Well_size_y_mm=6.3,
 
-        Offset_A1_x_mm=11.25-6.3/2, # offset is from center of the well
-        Offset_A1_y_mm=14.32-6.3/2, # offset is from center of the well
+        Offset_A1_x_mm=14.32-6.3/2, # offset is from center of the well
+        Offset_A1_y_mm=11.25-6.3/2, # offset is from center of the well
         Well_distance_x_mm=9,
         Well_distance_y_mm=9,
 
@@ -147,8 +147,8 @@ Plates=[
         Well_size_x_mm=6.35,
         Well_size_y_mm=6.35,
 
-        Offset_A1_x_mm=11.34-6.35/2, # offset is from center of the well
-        Offset_A1_y_mm=14.38-6.35/2, # offset is from center of the well
+        Offset_A1_x_mm=14.38-6.35/2, # offset is from center of the well
+        Offset_A1_y_mm=11.34-6.35/2, # offset is from center of the well
         Well_distance_x_mm=8.99,
         Well_distance_y_mm=8.99,
 
