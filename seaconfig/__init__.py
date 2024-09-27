@@ -16,6 +16,7 @@ Plates=[
         Width_mm=85.48,
         Well_size_x_mm=6.4,
         Well_size_y_mm=6.4,
+        Well_shape=WellShape.Circle,
 
         Offset_A1_x_mm=14.38-6.4/2, # offset is from center of the well
         Offset_A1_y_mm=11.24-6.4/2, # offset is from center of the well
@@ -37,6 +38,7 @@ Plates=[
         Width_mm=85.48,
         Well_size_x_mm=3.26,
         Well_size_y_mm=3.26,
+        Well_shape=WellShape.Square,
 
         Offset_A1_x_mm=12.13-3.26/2, # offset is from center of the well
         Offset_A1_y_mm=8.99-3.26/2, # offset is from center of the well
@@ -58,6 +60,7 @@ Plates=[
         Width_mm=85.48,
         Well_size_x_mm=1.53,
         Well_size_y_mm=1.53,
+        Well_shape=WellShape.Square,
 
         Offset_A1_x_mm=11.01-1.53/2, # offset is from center of the well
         Offset_A1_y_mm=7.87-1.53/2, # offset is from center of the well
@@ -80,6 +83,7 @@ Plates=[
         Width_mm=85.47,
         Well_size_x_mm=6.3,
         Well_size_y_mm=6.3,
+        Well_shape=WellShape.Circle,
 
         Offset_A1_x_mm=14.32-6.3/2, # offset is from center of the well
         Offset_A1_y_mm=11.25-6.3/2, # offset is from center of the well
@@ -101,6 +105,7 @@ Plates=[
         Width_mm=85.48,
         Well_size_x_mm=3.26,
         Well_size_y_mm=3.26,
+        Well_shape=WellShape.Square,
 
         Offset_A1_x_mm=12.13-3.26/2, # offset is from center of the well
         Offset_A1_y_mm=8.99-3.26/2, # offset is from center of the well
@@ -122,6 +127,7 @@ Plates=[
         Width_mm=85.5,
         Well_size_x_mm=1.7, # seems to be at top of well
         Well_size_y_mm=1.7, # seems to be at top of well
+        Well_shape=WellShape.Square,
 
         Offset_A1_x_mm=11.0-1.7/2, # offset is from center of the well
         Offset_A1_y_mm=7.9-1.7/2, # offset is from center of the well
@@ -146,6 +152,7 @@ Plates=[
         Width_mm=85.11,
         Well_size_x_mm=6.35,
         Well_size_y_mm=6.35,
+        Well_shape=WellShape.Circle,
 
         Offset_A1_x_mm=14.38-6.35/2, # offset is from center of the well
         Offset_A1_y_mm=11.34-6.35/2, # offset is from center of the well
@@ -167,6 +174,7 @@ Plates=[
         Width_mm=85.48,
         Well_size_x_mm=3.26,
         Well_size_y_mm=3.26,
+        Well_shape=WellShape.Square,
 
         Offset_A1_x_mm=12.13-3.26/2, # offset is from center of the well
         Offset_A1_y_mm=8.99-3.26/2, # offset is from center of the well
@@ -188,6 +196,7 @@ Plates=[
         Width_mm=85.5,
         Well_size_x_mm=1.5,
         Well_size_y_mm=1.5,
+        Well_shape=WellShape.Square,
 
         Offset_A1_x_mm=11.0-1.5/2, # offset is from center of the well
         Offset_A1_y_mm=7.86-1.5/2, # offset is from center of the well

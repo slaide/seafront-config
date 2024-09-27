@@ -1,4 +1,9 @@
 from dataclasses import dataclass
+from enum import Enum
+
+class WellShape(str,Enum):
+    Square="square"
+    Circle="circle"
 
 @dataclass
 class Wellplate:
@@ -36,6 +41,8 @@ class Wellplate:
                                      note on 'bottom of the well': wells usually have slanted walls so the area is smaller at the bottom than at the top,
                                                                    and technical information on plates usually only decribes the area at the top, which is not 
                                                                    useful when we image at the bottom.
+                                                                   
+            - Well_shape:WellShape : shape of each well
 
             - Num_wells_x:int : number of wells in x dimension
             - Num_wells_y:int : number of wells in y dimension
@@ -70,6 +77,8 @@ class Wellplate:
 
     Length_mm:float
     Width_mm:float
+
+    Well_shape:WellShape
 
     @property
     def Num_total_wells(self):
