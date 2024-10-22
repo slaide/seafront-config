@@ -7,6 +7,7 @@ from datetime import datetime
 
 @dataclass
 class AcquisitionWellSiteConfigurationDeltaTime:
+    "delta time struct with hour,minute and second components. used for delta t spec in "
     h:float
     m:float
     s:float
@@ -21,15 +22,16 @@ class AcquisitionWellSiteConfigurationDeltaTime:
 
 @dataclass
 class AcquisitionWellSiteConfigurationSiteSelectionItem:
+    """
+    indicate if this item in the AcquisitionWellSiteConfiguration site grid should be imaged or not
+    """
     row:int
     col:int
-    plane:int
     selected:bool
 
     def __post_init__(self):
         self.row=int(self.row)
         self.col=int(self.col)
-        self.plane=int(self.plane)
 
 @dataclass
 class AcquisitionWellSiteConfiguration:
@@ -48,8 +50,6 @@ class AcquisitionWellSiteConfiguration:
         delta_x_mm:float - distance between x coordinates
         num_y:int - number of y coordinates
         delta_y_mm:float - distance between y coordinates
-        num_z:int - number of z coordinates
-        delta_z_um:float - distance between z coordinates
 
         num_t:int - number of time points
         delta_t:AcquisitionWellSiteConfigurationDeltaTime - time between time points
@@ -62,8 +62,6 @@ class AcquisitionWellSiteConfiguration:
     delta_x_mm:float
     num_y:int
     delta_y_mm:float
-    num_z:int
-    delta_z_um:float
     num_t:int
     delta_t:AcquisitionWellSiteConfigurationDeltaTime
 
@@ -72,10 +70,10 @@ class AcquisitionWellSiteConfiguration:
     def __post_init__(self):
         self.num_x=int(self.num_x)
         self.delta_x_mm=float(self.delta_x_mm)
+
         self.num_y=int(self.num_y)
         self.delta_y_mm=float(self.delta_y_mm)
-        self.num_z=int(self.num_z)
-        self.delta_z_um=float(self.delta_z_um)
+
         self.num_t=int(self.num_t)
 
         self.delta_t = AcquisitionWellSiteConfigurationDeltaTime(**self.delta_t) # type: ignore
@@ -88,10 +86,15 @@ class AcquisitionWellSiteConfiguration:
 class AcquisitionChannelConfig:
     name:str
     handle:str
+
     illum_perc:float
     exposure_time_ms:float
     analog_gain:float
+
     z_offset_um:float
+
+    num_z_planes:int
+    delta_z_um:float
     
     enabled:bool=True
 
@@ -99,7 +102,11 @@ class AcquisitionChannelConfig:
         self.illum_perc=float(self.illum_perc)
         self.exposure_time_ms=float(self.exposure_time_ms)
         self.analog_gain=float(self.analog_gain)
+
         self.z_offset_um=float(self.z_offset_um)
+
+        self.num_z_planes=int(self.num_z_planes)
+        self.delta_z_um=float(self.delta_z_um)
 
     def to_dict(self)->dict:
         return dc.asdict(self)
@@ -136,7 +143,19 @@ class Version:
     def to_dict(self)->dict:
         return dc.asdict(self)
 
-LATEST_SPEC_VERSION=Version(1,0,0)
+    def smaller_than(self,other:"Version")->bool:
+        if self.major<other.major: return True
+        if self.major>other.major: return False
+
+        if self.minor<other.minor: return True
+        if self.minor>other.minor: return False
+
+        if self.patch<other.patch: return True
+        if self.patch>other.patch: return False
+
+        return False
+
+LATEST_SPEC_VERSION=Version(2,0,0)
 
 def _ensure_type(v,T,convert_v_to_T:tp.Callable|None=None):
     """
@@ -196,8 +215,21 @@ class AcquisitionConfig:
 
     @staticmethod
     def from_json(s:tp.Union[str,dict])->"AcquisitionConfig":
+        d:dict[str,tp.Any]
         if isinstance(s,dict):
             d = s
         else:
             d = json.loads(s)
-        return AcquisitionConfig(**d)
+
+        # when loading from file, do NOT default to latest spec version, instead default to v1
+        if "spec_version" not in d:
+            d["spec_version"]=Version(1,0,0)
+
+        # todo : handle upgrading protocol from v1 to v2
+        # 1) self.grid[AcquisitionWellSiteConfiguration].num_z:int -> now per channel
+        # 2) self.grid[AcquisitionWellSiteConfiguration].delta_z_um:float -> now per channel
+        # 3) AcquisitionWellSiteConfigurationSiteSelectionItem.plane -> removed (unused)
+
+        spec=AcquisitionConfig(**d)
+
+        return spec
