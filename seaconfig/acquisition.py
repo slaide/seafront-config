@@ -190,7 +190,7 @@ class AcquisitionConfig:
     comment:tp.Optional[str]=None
     " arbitrary text comment embedded in the config file. may be used to communicate of intented context of use of the protocol (or any other purpose). "
 
-    spec_version:Version=LATEST_SPEC_VERSION
+    spec_version:Version=dc.field(default_factory=lambda:LATEST_SPEC_VERSION)
     " version of the sdatetimepecification that was used to create the protocol file. "
 
     timestamp:tp.Optional[datetime]=None
