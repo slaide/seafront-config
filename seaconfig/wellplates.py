@@ -1,12 +1,12 @@
 from dataclasses import dataclass
 from enum import Enum
+from pydantic import BaseModel, Field
 
 class WellShape(str,Enum):
     Square="square"
     Circle="circle"
 
-@dataclass
-class Wellplate:
+class Wellplate(BaseModel):
     """
         physical and meta characteristics of a wellplate
 

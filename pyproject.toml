@@ -1,10 +1,10 @@
 [project]
 name = "seaconfig"
-version = "0.2.0"
+version = "0.3.0"
 description = "configuration file manage for seafront"
 authors = [{name = "Patrick Hennig", email = "patrick.hennig@uu.se"}]
 license = {file = "LICENSE"}
 
 dependencies = [
-    
+    "pydantic==2.9.2",
 ]

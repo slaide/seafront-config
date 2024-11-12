@@ -1,15 +1,12 @@
 import typing as tp
 import dataclasses as dc
 from dataclasses import dataclass
+from pydantic import BaseModel, Field
 
-@dataclass
-class ConfigItemOption:
+class ConfigItemOption(BaseModel):
     name:str
     handle:str
     info:tp.Optional[tp.Any]=None
-
-    def to_dict(self)->dict:
-        return dc.asdict(self)
     
     @staticmethod
     def get_bool_options()->tp.List["ConfigItemOption"]:
@@ -24,18 +21,13 @@ class ConfigItemOption:
             ),
         ]
 
-@dataclass
-class ConfigItem:
+class ConfigItem(BaseModel):
     name:str
     handle:str
     value_kind:tp.Literal["number","text","option","action"]
     value:tp.Union[int,float,str]
     frozen:bool=False
     options:tp.Optional[tp.List[ConfigItemOption]]=None
-
-    def __post_init__(self):
-        if self.options is not None:
-            self.options=[o if type(o) == ConfigItemOption else ConfigItemOption(**o) for o in self.options] # type: ignore
 
     @property
     def intvalue(self)->int:
@@ -68,9 +60,3 @@ class ConfigItem:
                     self.value=float(other.value)
             case _:
                 self.value=other.value
-
-    def to_dict(self)->dict:
-        ret=dc.asdict(self)
-        if self.options is not None:
-            ret['options']=[o.to_dict() for o in self.options]
-        return ret
