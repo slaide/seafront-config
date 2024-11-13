@@ -2,6 +2,16 @@ import typing as tp
 import dataclasses as dc
 from dataclasses import dataclass
 from pydantic import BaseModel, Field
+from datetime import datetime, timezone
+
+def datetime2str(dt:datetime)->str:
+    """
+    return datetime, formatted as str
+
+    also converts the timezone to utc
+    """
+
+    return dt.astimezone(timezone.utc).isoformat(timespec='seconds')
 
 class ConfigItemOption(BaseModel):
     name:str

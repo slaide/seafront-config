@@ -1,5 +1,5 @@
 import typing as tp
-from .config_item import ConfigItem
+from .config_item import ConfigItem, datetime2str
 from datetime import datetime
 from pydantic import BaseModel, Field
 
@@ -125,5 +125,5 @@ class AcquisitionConfig(BaseModel):
     spec_version:Version=Field(default_factory=lambda:LATEST_SPEC_VERSION)
     " version of the sdatetimepecification that was used to create the protocol file. "
 
-    timestamp:tp.Optional[datetime]=None
+    timestamp:tp.Optional[str]=None
     " creation timestamp of this protocol in utc "
