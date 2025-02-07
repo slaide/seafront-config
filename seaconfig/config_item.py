@@ -40,6 +40,11 @@ class ConfigItem(BaseModel):
     options:tp.Optional[tp.List[ConfigItemOption]]=None
 
     @property
+    def strvalue(self)->str:
+        assert isinstance(self.value,str), f"{self.value = } ; {type(self.value) = }!=str"
+        return self.value
+
+    @property
     def intvalue(self)->int:
         assert isinstance(self.value,int), f"{self.value = } ; {type(self.value) = }!=int"
         return self.value

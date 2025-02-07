@@ -1,13 +1,13 @@
 import typing as tp
-from .config_item import ConfigItem, datetime2str
-from datetime import datetime
+from .config_item import ConfigItem
 from pydantic import BaseModel, Field
 
 class AcquisitionWellSiteConfigurationDeltaTime(BaseModel):
     "delta time struct with hour,minute and second components. used for delta t spec in "
-    h:float
-    m:float
-    s:float
+    h:float=Field(...,title="Hours")
+    "hour component of the delta time"
+    m:float=Field(...)
+    s:float=Field(...)
 
 class AcquisitionWellSiteConfigurationSiteSelectionItem(BaseModel):
     """
