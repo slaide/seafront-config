@@ -205,5 +205,27 @@ Plates=[
 
         Offset_bottom_mm=0.08+1.72, # bottom thickness + distance to bottom
     ),
+
+    Wellplate(
+        Manufacturer="Unknown",
+        Model_name="Glass Slide",
+        Model_id_manufacturer="unknown-glass-slide",
+        Model_id="unknown-glass-slide",
+
+        Num_wells_y=1,
+        Num_wells_x=1,
+        Length_mm=127.8,
+        Width_mm=85.5,
+        Well_size_x_mm=75,
+        Well_size_y_mm=26,
+        Well_shape=WellShape.Square,
+
+        Offset_A1_x_mm=(127.8-75)/2,
+        Offset_A1_y_mm=(85.5-26)/2,
+        Well_distance_x_mm=0,#n/a
+        Well_distance_y_mm=0,#n/a
+
+        Offset_bottom_mm=0.08+1.72, # placeholder
+    ),
 ]
 """ a list of known wellplates """
