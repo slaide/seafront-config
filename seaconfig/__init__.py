@@ -103,12 +103,12 @@ Plates=[
         Num_wells_y=16,
         Length_mm=127.76,
         Width_mm=85.48,
-        Well_size_x_mm=3.26,
-        Well_size_y_mm=3.26,
+        Well_size_x_mm=3.17,
+        Well_size_y_mm=3.17,
         Well_shape=WellShape.Square,
 
-        Offset_A1_x_mm=12.13-3.26/2, # offset is from center of the well
-        Offset_A1_y_mm=8.99-3.26/2, # offset is from center of the well
+        Offset_A1_x_mm=12.13-3.17/2, # offset is from center of the well
+        Offset_A1_y_mm=8.99-3.17/2, # offset is from center of the well
         Well_distance_x_mm=4.5,
         Well_distance_y_mm=4.5,
 
@@ -172,12 +172,12 @@ Plates=[
         Num_wells_y=16,
         Length_mm=127.76,
         Width_mm=85.48,
-        Well_size_x_mm=3.26,
-        Well_size_y_mm=3.26,
+        Well_size_x_mm=3.30,
+        Well_size_y_mm=3.30,
         Well_shape=WellShape.Square,
 
-        Offset_A1_x_mm=12.13-3.26/2, # offset is from center of the well
-        Offset_A1_y_mm=8.99-3.26/2, # offset is from center of the well
+        Offset_A1_x_mm=12.13-3.30/2, # offset is from center of the well
+        Offset_A1_y_mm=8.99-3.30/2, # offset is from center of the well
         Well_distance_x_mm=4.5,
         Well_distance_y_mm=4.5,
 
