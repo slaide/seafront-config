@@ -1,5 +1,6 @@
 import typing as tp
 from .config_item import ConfigItem
+from .wellplates import Wellplate
 from pydantic import BaseModel, Field
 
 class AcquisitionWellSiteConfigurationDeltaTime(BaseModel):
@@ -101,7 +102,7 @@ class Version(BaseModel):
 
         return False
 
-LATEST_SPEC_VERSION=Version(major=2,minor=0,patch=0)
+LATEST_SPEC_VERSION=Version(major=3,minor=0,patch=0)
 
 class AcquisitionConfig(BaseModel):
     project_name:str
@@ -110,7 +111,7 @@ class AcquisitionConfig(BaseModel):
     
     grid:AcquisitionWellSiteConfiguration
 
-    wellplate_type:str
+    wellplate_type:Wellplate
     plate_wells:tp.List[PlateWellConfig]
 
     channels:tp.List[AcquisitionChannelConfig]
