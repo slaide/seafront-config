@@ -193,7 +193,7 @@ Plates = [
     Wellplate(
         # https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/1536-well-Microplates/Corning%C2%AE1536-well-Standard-Polystyrene-Microplates-and-Low-Base/p/3832
         Manufacturer="Corning",
-        Model_name="Corning 1536-well",  # not falcon
+        Model_name="Corning 1536-well",
         Model_id_manufacturer="3832",
         Model_id="corning-1536-3832",
         Num_wells_x=48,
@@ -208,6 +208,30 @@ Plates = [
         Well_distance_x_mm=2.25,
         Well_distance_y_mm=2.25,
         Offset_bottom_mm=0.08 + 1.72, # bottom thickness + distance to bottom
+    ),
+
+    # --- agilent plates
+
+    Wellplate(
+        # https://www.agilent.com/store/en_US/Prod-204628-100/204628-100
+        # https://www.agilent.com/cs/library/datasheets/public/ds-cell-analysis-5994-4394en-agilent.pdf
+        # https://www.agilent.com/cs/library/flyers/public/fl-cell-analysis-5994-5094en-agilent.pdf
+        Manufacturer="Agilent",
+        Model_name="Agilent 384 (204628)",
+        Model_id_manufacturer="204628-100",
+        Model_id="agilent-384-204628",
+        Num_wells_x=24,
+        Num_wells_y=16,
+        Length_mm=127.76,
+        Width_mm=85.47,
+        Well_size_x_mm=3.7,
+        Well_size_y_mm=3.7,
+        Well_edge_radius_mm=0.6, # somewhat specified in figure 3 here https://www.agilent.com/cs/library/technicaloverviews/public/te-cell-analysis-5994-5009en-agilent.pdf
+        Offset_A1_x_mm=12.13-3.7/2,
+        Offset_A1_y_mm=8.99 -3.7/2,
+        Well_distance_x_mm=4.5,
+        Well_distance_y_mm=4.5,
+        Offset_bottom_mm=14-10.9, # plate height - well depth
     ),
 
     # --- greiner plates
