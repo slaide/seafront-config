@@ -174,7 +174,7 @@ Plates = [
     Wellplate(
         # https://ecatalog.corning.com/life-sciences/b2b/NO/en/Microplates/Assay-Microplates/384-Well-Microplates/Falcon%C2%AE-384-well-Microplates/p/353961
         Manufacturer="Corning",
-        Model_name="Falcon 384-well",
+        Model_name="Falcon 384 (353961)",
         Model_id_manufacturer="353961",
         Model_id="corning-384-353961",
         Num_wells_x=24,
@@ -189,6 +189,25 @@ Plates = [
         Well_distance_x_mm=4.5,
         Well_distance_y_mm=4.5,
         Offset_bottom_mm=14.30 - 10.76, # plate height - well depth (from corning-falcon-96)
+    ),
+    Wellplate(
+        # https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/384-Well-Microplates/Falcon%C2%AE-384-well-Microplates/p/353962
+        Manufacturer="Corning",
+        Model_name="Falcon 384 (353962)",
+        Model_id_manufacturer="353962",
+        Model_id="corning-384-353962",
+        Num_wells_x=24,
+        Num_wells_y=16,
+        Length_mm=127.76, # unspecified
+        Width_mm=85.5, # unspecified
+        Well_size_x_mm=4.5, # unspecified
+        Well_size_y_mm=4.5, # unspecified
+        Well_edge_radius_mm=0.6, # unspecified
+        Offset_A1_x_mm=12.13, # unspecified
+        Offset_A1_y_mm=8.9, # unspecified
+        Well_distance_x_mm=4.5, # unspecified
+        Well_distance_y_mm=4.5, # unspecified
+        Offset_bottom_mm=2, # unspecified
     ),
     Wellplate(
         # https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/1536-well-Microplates/Corning%C2%AE1536-well-Standard-Polystyrene-Microplates-and-Low-Base/p/3832
