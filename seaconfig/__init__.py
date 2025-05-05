@@ -108,6 +108,26 @@ Plates = [
         Offset_bottom_mm=2.2,  # from thermofischer-nunc-96
     ),
     Wellplate(
+        # https://www.thermofisher.com/order/catalog/product/142761
+        # https://assets.thermofisher.com/TFS-Assets/LCD/Schematics-%26-Diagrams/2427xx_0207%20PS%20384%20OBP.pdf
+        Manufacturer="ThermoFischer",
+        Model_name="Nunc 384-well (142761)",
+        Model_id_manufacturer="142761",
+        Model_id="thermofischer-384-142761",
+        Num_wells_x=24,
+        Num_wells_y=16,
+        Length_mm=127.76,
+        Width_mm=85.5,
+        Well_size_x_mm=3.17,
+        Well_size_y_mm=3.17,
+        Well_edge_radius_mm=0.2, # unspecified. looks like some very small radius.
+        Offset_A1_x_mm=12.1 - 3.17 / 2,  # offset is from center of the well
+        Offset_A1_y_mm=9.0 - 3.17 / 2,  # offset is from center of the well
+        Well_distance_x_mm=4.5,
+        Well_distance_y_mm=4.5,
+        Offset_bottom_mm=1.7 + 0.25, # bottom thickness + distance to bottom
+    ),
+    Wellplate(
         # https://www.thermofisher.com/order/catalog/product/253601
         # https://assets.thermofisher.com/TFS-Assets/LSG/manuals/D03007.pdf
         Manufacturer="ThermoFischer",

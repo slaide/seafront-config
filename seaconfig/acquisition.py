@@ -102,7 +102,7 @@ class Version(BaseModel):
 
         return False
 
-LATEST_SPEC_VERSION=Version(major=5,minor=0,patch=1)
+LATEST_SPEC_VERSION=Version(major=5,minor=0,patch=2)
 
 class AcquisitionConfig(BaseModel):
     project_name:str
