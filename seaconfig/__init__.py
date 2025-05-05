@@ -3,6 +3,9 @@ from .config_item import *
 from .wellplates import *
 
 Plates = [
+
+    # --- revvity plates
+
     Wellplate(
         # https://www.revvity.com/se-en/product/phenoplate-96-tc-lid-case-2x20b-6055302#overview
         # https://resources.revvity.com/pdfs/prd-phenoplate-96-well-microplates-hca.pdf
@@ -62,6 +65,9 @@ Plates = [
         Well_distance_y_mm=2.25,
         Offset_bottom_mm=0.118 + 0.210,  # foil + bottom height
     ),
+
+    # --- thermo fischer plates
+
     Wellplate(
         # https://www.thermofisher.com/order/catalog/product/165305
         # https://assets.thermofisher.com/TFS-Assets/LCD/Schematics-%26-Diagrams/1653xx_0713.pdf
@@ -85,7 +91,7 @@ Plates = [
     Wellplate(
         # https://www.thermofisher.com/order/catalog/product/A58941
         Manufacturer="ThermoFischer",
-        Model_name="Nunc 384-well",
+        Model_name="384-well (A58941)",
         Model_id_manufacturer="A58941",
         Model_id="thermofischer-384-A58941",
         Num_wells_x=24,
@@ -119,8 +125,11 @@ Plates = [
         Offset_A1_y_mm=7.9 - 1.7 / 2,  # offset is from center of the well
         Well_distance_x_mm=2.2,
         Well_distance_y_mm=2.2,
-        Offset_bottom_mm=7.4 - 5.1,  # plate height - well depth
+        Offset_bottom_mm=7.4 - 5.1, # plate height - well depth
     ),
+
+    # --- corning plates
+
     # tech specs for corning 96,384,1536 plates:
     # https://www.corning.com/catalog/cls/documents/drawings/MicroplateDimensions96-384-1536.pdf
     Wellplate(
@@ -159,8 +168,7 @@ Plates = [
         Offset_A1_y_mm=8.99 - 3.30 / 2,  # offset is from center of the well
         Well_distance_x_mm=4.5,
         Well_distance_y_mm=4.5,
-        Offset_bottom_mm=14.30
-        - 10.76,  # plate height - well depth (from corning-falcon-96)
+        Offset_bottom_mm=14.30 - 10.76,  # plate height - well depth (from corning-falcon-96)
     ),
     Wellplate(
         # https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/1536-well-Microplates/Corning%C2%AE1536-well-Standard-Polystyrene-Microplates-and-Low-Base/p/3832
@@ -179,8 +187,11 @@ Plates = [
         Offset_A1_y_mm=7.86 - 1.5 / 2,  # offset is from center of the well
         Well_distance_x_mm=2.25,
         Well_distance_y_mm=2.25,
-        Offset_bottom_mm=0.08 + 1.72,  # bottom thickness + distance to bottom
+        Offset_bottom_mm=0.08 + 1.72, # bottom thickness + distance to bottom
     ),
+
+    # --- glass slide carriers
+
     Wellplate(
         Manufacturer="Generic",
         Model_name="Glass Slide Carrier (1)",
