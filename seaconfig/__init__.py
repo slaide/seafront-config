@@ -188,7 +188,7 @@ Plates = [
         Offset_A1_y_mm=8.99 - 3.30 / 2,  # offset is from center of the well
         Well_distance_x_mm=4.5,
         Well_distance_y_mm=4.5,
-        Offset_bottom_mm=14.30 - 10.76,  # plate height - well depth (from corning-falcon-96)
+        Offset_bottom_mm=14.30 - 10.76, # plate height - well depth (from corning-falcon-96)
     ),
     Wellplate(
         # https://ecatalog.corning.com/life-sciences/b2c/US/en/Microplates/Assay-Microplates/1536-well-Microplates/Corning%C2%AE1536-well-Standard-Polystyrene-Microplates-and-Low-Base/p/3832
@@ -208,6 +208,49 @@ Plates = [
         Well_distance_x_mm=2.25,
         Well_distance_y_mm=2.25,
         Offset_bottom_mm=0.08 + 1.72, # bottom thickness + distance to bottom
+    ),
+
+    # --- greiner plates
+
+    Wellplate(
+        # https://shop.gbo.com/en/row/products/bioscience/cell-culture-products/cellstar-cell-culture-microplates/384-well-cell-culture-microplates-clear-black-white/781091.html
+        # https://shop.gbo.com/en/row/files/25388026/781091.pdf
+        Manufacturer="Greiner",
+        Model_name="Cellstar 384",
+        Model_id_manufacturer="781091",
+        Model_id="greiner-384-781091",
+        Num_wells_x=24,
+        Num_wells_y=16,
+        Length_mm=127.35,
+        Width_mm=85.8,
+        Well_size_x_mm=3.3,
+        Well_size_y_mm=3.3,
+        Well_edge_radius_mm=0.2, # unspecified. looks like some very small radius.
+        Offset_A1_x_mm=12.13-3.3/2,
+        Offset_A1_y_mm=8.99 -3.3/2,
+        Well_distance_x_mm=4.5,
+        Well_distance_y_mm=4.5,
+        Offset_bottom_mm=14.4-11.5, # plate height - well depth
+    ),
+    Wellplate(
+        # https://shop.gbo.com/en/row/products/bioscience/microscopy/en-screenstar-microplates/781866.html?sword_list%5B0%5D=781866&no_cache=1
+        # https://shop.gbo.com/en/row/files/25388061/781866.pdf
+        Manufacturer="Greiner",
+        Model_name="SCREENSTAR 384",
+        Model_id_manufacturer="781866",
+        Model_id="greiner-384-781866",
+        Num_wells_x=24,
+        Num_wells_y=16,
+        Length_mm=127.76,
+        Width_mm=85.48,
+        Well_size_x_mm=2.81,
+        Well_size_y_mm=2.81,
+        Well_edge_radius_mm=0.2, # unspecified. looks like some very small radius.
+        Offset_A1_x_mm=12.13-2.81/2,
+        Offset_A1_y_mm=8.99 -2.81/2,
+        Well_distance_x_mm=4.5,
+        Well_distance_y_mm=4.5,
+        Offset_bottom_mm=13.1-12.7, # plate height - well depth
     ),
 
     # --- glass slide carriers

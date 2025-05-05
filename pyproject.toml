@@ -1,6 +1,6 @@
 [project]
 name = "seaconfig"
-version = "5.0.2"
+version = "5.0.3"
 description = "configuration file manage for seafront"
 authors = [{name = "Patrick Hennig", email = "patrick.hennig@uu.se"}]
 license = {file = "LICENSE"}
