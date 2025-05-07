@@ -75,11 +75,5 @@ class ConfigItem(BaseModel):
         update value from other item
         """
         assert self.handle == other.handle, f"{self.handle = } != {other.handle = }"
-        match self.value_kind:
-            case "number":
-                if isinstance(self.value, int):
-                    self.value = int(other.value)
-                else:
-                    self.value = float(other.value)
-            case _:
-                self.value = other.value
+        assert self.value_kind == other.value_kind, f"{self.value_kind = } != {other.value_kind = }"
+        self.value = other.value
