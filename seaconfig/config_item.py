@@ -50,15 +50,18 @@ class ConfigItem(BaseModel):
 
     @property
     def intvalue(self) -> int:
-        assert isinstance(self.value, int), (
-            f"{self.value = } ; {type(self.value) = }!=int"
+        assert self.value_kind=="int" and isinstance(self.value, int), (
+            f"{self.value = } ; {self.value_kind}!='int' or {type(self.value) = }!=int"
         )
         return self.value
 
     @property
     def floatvalue(self) -> float:
-        assert isinstance(self.value, float), (
-            f"{self.value = } ; {type(self.value) = }!=float"
+        if isinstance(self.value, int) and self.value_kind=="float":
+            self.value=float(self.value)
+
+        assert self.value_kind=="float" and isinstance(self.value, float), (
+            f"{self.value = } ; {self.value_kind}!='float' or {type(self.value) = }!=float"
         )
         return self.value
 
