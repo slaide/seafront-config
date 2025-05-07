@@ -36,7 +36,7 @@ class ConfigItemOption(BaseModel):
 class ConfigItem(BaseModel):
     name: str
     handle: str
-    value_kind: tp.Literal["number", "text", "option", "action"]
+    value_kind: tp.Literal["int", "float", "text", "option", "action"]
     value: tp.Union[int, float, str]
     frozen: bool = False
     options: tp.Optional[tp.List[ConfigItemOption]] = None
@@ -57,8 +57,6 @@ class ConfigItem(BaseModel):
 
     @property
     def floatvalue(self) -> float:
-        if isinstance(self.value, int):
-            self.value = float(self.value)
         assert isinstance(self.value, float), (
             f"{self.value = } ; {type(self.value) = }!=float"
         )

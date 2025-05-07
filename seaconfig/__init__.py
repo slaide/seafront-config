@@ -66,15 +66,15 @@ Plates = [
         Offset_bottom_mm=0.118 + 0.210,  # foil + bottom height
     ),
 
-    # --- thermo fischer plates
+    # --- thermofisher plates
 
     Wellplate(
         # https://www.thermofisher.com/order/catalog/product/165305
         # https://assets.thermofisher.com/TFS-Assets/LCD/Schematics-%26-Diagrams/1653xx_0713.pdf
-        Manufacturer="ThermoFischer",
+        Manufacturer="ThermoFisher",
         Model_name="Nunc 96-well",
         Model_id_manufacturer="165305",
-        Model_id="thermofischer-96-165305",
+        Model_id="thermofisher-96-165305",
         Num_wells_x=12,
         Num_wells_y=8,
         Length_mm=127.76,
@@ -90,10 +90,10 @@ Plates = [
     ),
     Wellplate(
         # https://www.thermofisher.com/order/catalog/product/A58941
-        Manufacturer="ThermoFischer",
+        Manufacturer="ThermoFisher",
         Model_name="384-well (A58941)",
         Model_id_manufacturer="A58941",
-        Model_id="thermofischer-384-A58941",
+        Model_id="thermofisher-384-A58941",
         Num_wells_x=24,
         Num_wells_y=16,
         Length_mm=127.76,
@@ -105,15 +105,15 @@ Plates = [
         Offset_A1_y_mm=8.99 - 3.17 / 2,  # offset is from center of the well
         Well_distance_x_mm=4.5,
         Well_distance_y_mm=4.5,
-        Offset_bottom_mm=2.2,  # from thermofischer-nunc-96
+        Offset_bottom_mm=2.2,  # from thermofisher-nunc-96
     ),
     Wellplate(
         # https://www.thermofisher.com/order/catalog/product/142761
         # https://assets.thermofisher.com/TFS-Assets/LCD/Schematics-%26-Diagrams/2427xx_0207%20PS%20384%20OBP.pdf
-        Manufacturer="ThermoFischer",
+        Manufacturer="ThermoFisher",
         Model_name="Nunc 384-well (142761)",
         Model_id_manufacturer="142761",
-        Model_id="thermofischer-384-142761",
+        Model_id="thermofisher-384-142761",
         Num_wells_x=24,
         Num_wells_y=16,
         Length_mm=127.76,
@@ -130,10 +130,10 @@ Plates = [
     Wellplate(
         # https://www.thermofisher.com/order/catalog/product/253601
         # https://assets.thermofisher.com/TFS-Assets/LSG/manuals/D03007.pdf
-        Manufacturer="ThermoFischer",
+        Manufacturer="ThermoFisher",
         Model_name="Nunc 1536-well",
         Model_id_manufacturer="253601",
-        Model_id="thermofischer-1536-253601",
+        Model_id="thermofisher-1536-253601",
         Num_wells_x=48,
         Num_wells_y=32,
         Length_mm=127.8,
@@ -296,13 +296,13 @@ Plates = [
         Offset_bottom_mm=13.1-12.7, # plate height - well depth
     ),
 
-    # --- glass slide carriers
+    # --- glass slide holder
 
     Wellplate(
         Manufacturer="Generic",
-        Model_name="Glass Slide Carrier (1)",
-        Model_id_manufacturer="generic-slide-carrier-1",
-        Model_id="generic-slide-carrier-1",
+        Model_name="Slide Holder",
+        Model_id_manufacturer="holder1",
+        Model_id="generic-1-holder1",
         Num_wells_x=1,
         Num_wells_y=1,
         Length_mm=127.8,
@@ -322,7 +322,7 @@ Plates = [
         Manufacturer="Thorlabs",
         Model_name="C4SH01",
         Model_id_manufacturer="C4SH01",
-        Model_id="thorlabs-C4SH01",
+        Model_id="thorlabs-4-C4SH01",
         Num_wells_x=4,
         Num_wells_y=1,
         Length_mm=127.6,
