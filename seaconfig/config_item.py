@@ -44,14 +44,14 @@ class ConfigItem(BaseModel):
     @property
     def strvalue(self) -> str:
         assert isinstance(self.value, str), (
-            f"{self.value = } ; {type(self.value) = }!=str"
+            f"{self.value = } ; on ${self.handle} {type(self.value) = }!=str"
         )
         return self.value
 
     @property
     def intvalue(self) -> int:
         assert self.value_kind=="int" and isinstance(self.value, int), (
-            f"{self.value = } ; {self.value_kind}!='int' or {type(self.value) = }!=int"
+            f"{self.value = } ; on ${self.handle} {self.value_kind}!='int' or {type(self.value) = }!=int"
         )
         return self.value
 
@@ -61,7 +61,7 @@ class ConfigItem(BaseModel):
             self.value=float(self.value)
 
         assert self.value_kind=="float" and isinstance(self.value, float), (
-            f"{self.value = } ; {self.value_kind}!='float' or {type(self.value) = }!=float"
+            f"{self.value = } ; on ${self.handle} {self.value_kind}!='float' or {type(self.value) = }!=float"
         )
         return self.value
 
@@ -69,7 +69,7 @@ class ConfigItem(BaseModel):
     def boolvalue(self) -> bool:
         # from ConfigItemOption.get_bool_options()
         assert isinstance(self.value, str), (
-            f"{self.value = } ; {type(self.value) = }!=bool"
+            f"{self.value = } ; on ${self.handle} {type(self.value) = }!=bool"
         )
         return self.value == "yes"
 
@@ -77,6 +77,6 @@ class ConfigItem(BaseModel):
         """
         update value from other item
         """
-        assert self.handle == other.handle, f"{self.handle = } != {other.handle = }"
-        assert self.value_kind == other.value_kind, f"{self.value_kind = } != {other.value_kind = }"
+        assert self.handle == other.handle, f"on ${self.handle} {self.handle = } != {other.handle = }"
+        assert self.value_kind == other.value_kind, f"on ${self.handle} {self.value_kind = } != {other.value_kind = }"
         self.value = other.value
