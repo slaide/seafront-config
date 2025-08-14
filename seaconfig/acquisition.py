@@ -64,6 +64,9 @@ class AcquisitionChannelConfig(BaseModel):
     num_z_planes:int
     delta_z_um:float
     
+    filter_handle:tp.Optional[str]=None
+    "Handle of the filter to use for this channel (references FilterConfig.handle), or None for no filter wheel movement"
+    
     enabled:bool=True
 
 class PlateWellConfig(BaseModel):
