@@ -11,7 +11,9 @@ def datetime2str(dt: datetime) -> str:
     also converts the timezone to utc
     """
 
-    return dt.astimezone(timezone.utc).isoformat(timespec="seconds")
+    # Convert to UTC and format as YYYY-MM-DD_HH.MM.SS
+    utc_dt = dt.astimezone(timezone.utc)
+    return utc_dt.strftime("%Y-%m-%d_%H.%M.%S")
 
 
 class ConfigItemOption(BaseModel):
