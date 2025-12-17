@@ -45,6 +45,25 @@ Plates = [
         Offset_bottom_mm=0.118 + 0.210,  # foil + bottom height
     ),
     Wellplate(
+        # https://www.revvity.com/se-en/product/viewplate-384-f-tc-4x10b-6007460
+        Manufacturer="Revvity",
+        Model_name="ViewPlate 384-well",
+        Model_id_manufacturer="6007460",
+        Model_id="revvity-384-6007460",
+        Num_wells_x=24,
+        Num_wells_y=16,
+        Length_mm=127.76,
+        Width_mm=85.48,
+        Well_size_x_mm=3.3,
+        Well_size_y_mm=3.3,
+        Well_edge_radius_mm=0.2, # unspecified. looks like some very small radius.
+        Offset_A1_x_mm=12.13 - 3.3 / 2,  # offset is from center of the well
+        Offset_A1_y_mm=8.99 - 3.3 / 2,  # offset is from center of the well
+        Well_distance_x_mm=4.5,
+        Well_distance_y_mm=4.5,
+        Offset_bottom_mm=0.19 + 2.71,  # foil + bottom height
+    ),
+    Wellplate(
         # https://www.revvity.com/se-en/product/phenoplate-1536-tc-lid-case-2x25b-6054305
         Manufacturer="Revvity",
         Model_name="PhenoPlate 1536-well",
