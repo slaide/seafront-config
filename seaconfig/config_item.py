@@ -38,8 +38,8 @@ class ConfigItemOption(BaseModel):
 class ConfigItem(BaseModel):
     name: str
     handle: str
-    value_kind: tp.Literal["int", "float", "text", "option", "action"]
-    value: tp.Union[int, float, str]
+    value_kind: tp.Literal["int", "float", "text", "option", "action", "object"]
+    value: tp.Union[int, float, str, dict, list]
     frozen: bool = False
     options: tp.Optional[tp.List[ConfigItemOption]] = None
 
@@ -74,6 +74,13 @@ class ConfigItem(BaseModel):
             f"{self.value = } ; on ${self.handle} {type(self.value) = }!=bool"
         )
         return self.value == "yes"
+
+    @property
+    def objectvalue(self) -> tp.Union[dict, list]:
+        assert self.value_kind == "object" and isinstance(self.value, (dict, list)), (
+            f"{self.value = } ; on ${self.handle} {self.value_kind}!='object' or {type(self.value) = } not dict/list"
+        )
+        return self.value
 
     def override(self, other: "ConfigItem"):
         """
