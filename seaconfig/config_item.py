@@ -40,7 +40,8 @@ class ConfigItem(BaseModel):
     handle: str
     value_kind: tp.Literal["int", "float", "text", "option", "action", "object"]
     value: tp.Union[int, float, str, dict, list]
-    frozen: bool = False
+    privileged: bool = False
+    "server-owned value: only written by a request that explicitly asserts privilege (you should know what you are doing, a restart may be needed)"
     options: tp.Optional[tp.List[ConfigItemOption]] = None
 
     @property
