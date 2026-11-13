@@ -313,6 +313,29 @@ Plates = [
         Offset_bottom_mm=13.1-12.7, # plate height - well depth
     ),
 
+    # --- ibidi plates
+
+    Wellplate(
+        # https://ibidi.com/multiwell-plates/333-5344--plate-6-well.html
+        # https://ibidi.com/img/cms/downloads/in/IN_80637_6well_glass.pdf
+        Manufacturer="ibidi",
+        Model_name="µ-Plate 6 Well Glass Bottom",
+        Model_id_manufacturer="80637",
+        Model_id="ibidi-6-80637",
+        Num_wells_x=3,
+        Num_wells_y=2,
+        Length_mm=127.8,
+        Width_mm=85.5,
+        Well_size_x_mm=34.0,
+        Well_size_y_mm=34.0,
+        Well_edge_radius_mm=34.0 / 2,  # circular
+        Offset_A1_x_mm=26.4 - 34.0 / 2,  # drawing specifies the well center
+        Offset_A1_y_mm=24.0 - 34.0 / 2,  # drawing specifies the well center
+        Well_distance_x_mm=37.5,
+        Well_distance_y_mm=37.5,
+        Offset_bottom_mm=0.46,  # focal offset: 0.29 mm clearance + 0.17 mm glass
+    ),
+
     # --- glass slide holder
 
     Wellplate(
